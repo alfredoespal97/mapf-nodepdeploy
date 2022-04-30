@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Add Book</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body class="container" style="margin-top: 50px;">
+
+	<% if (messages.error) { %>
+	<div class="alert alert-danger" role="alert"><%- messages.error %></div>
+	<% } %>
+
+    <div class="card"> 
+    	<div class="card-header">
+			QR Inforamtion
+		</div>
+        <div class="card-body">
+            <div >
+                <img src=<%=src%> alt="QR Generator">
+            </div>
+            <!-- <div >
+                <label><%=src%></label>
+            </div> -->
+        </div>
+        <div class="card-footer">
+            <form action="/objetos/show/<%=id%>" method="get">
+                <div class="form-group">
+                    <input type="submit" class="btn btn-info" value="Atrás"/>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

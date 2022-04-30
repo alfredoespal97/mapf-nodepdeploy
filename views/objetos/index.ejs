@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Objetos Museables</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body class="container" style="margin-top: 50px;">
+
+    <% if (messages.success) { %>
+    <div class="alert alert-success" role="alert"><%- messages.success %></div>
+    <% } %>
+
+    <% if (messages.error) { %>
+    <div class="alert alert-danger" role="alert"><%- messages.error %></div>
+    <% } %>
+
+    <div class="card"> 
+        <div class="card-header">
+            <ul class="nav nav-pills w-100">
+                <li class="nav-pill active">
+                    <a class="nav-link">Objetos Museables</a>
+                </li>
+                <li class="nav-pill ml-auto">
+                    <a class="nav-link active" href="/objetos/add">Agregar Objeto</a>
+                </li>
+            </ul>
+        </div>
+    <div class="card-body">
+        
+        <% if(data.length) { %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descripción</th>
+                    <th width="200px">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% for(var i = 0; i< data.length; i++) { %>
+                <tr>
+                    <th scope="row"><%= (i+1) %></th>
+                    <td><%= data[i].nombre%></td>
+                    <td><%= data[i].descripcion%></td>
+                    <td>
+                        <a class="btn btn-primary view" href="../objetos/show/<%=data[i].id%>">Ver</a>
+                        <a class="btn btn-success edit" href="../objetos/edit/<%=data[i].id%>">Editar</a>
+                        <a class="btn btn-danger delete" onclick="body.alert('Are You sure?')" href="../objetos/delete/<%=data[i].id%>">Eliminar</a>
+                    </td>
+                </tr>
+            <% } %>
+            </tbody>
+        </table>
+        <% } %>
+        
+        <!-- if result is empty -->
+        <% if(!data.length) { %>
+            <p class="text-center">No se encontraron objetos museables!</p>
+        <% } %>
+
+        </div>
+    </div>
+
+</body>
+</html>

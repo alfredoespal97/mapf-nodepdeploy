@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Mostrar Objeto</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body class="container" style="margin-top: 50px;">
+
+	<% if (messages.error) { %>
+	<div class="alert alert-danger" role="alert"><%- messages.error %></div>
+	<% } %>
+
+    <div class="card"> 
+    	<div class="card-header">
+			Objeto <%= id %>
+		</div>
+        <div class="card-body">
+            <div class="form-group">
+                <label>Nombre:</label>
+                <label> <%= nombre %></label>
+            </div>
+            <div class="form-group">
+                <label>Descripción:</label>
+                <label> <%= descripcion %></label>
+            </div>
+            <div >
+                <a class="btn btn-primary view" href="../scan/<%=id%>">Mostrar QR</a>
+            </div>
+        </div>
+        <div class="card-footer">
+            <form action="/objetos/" method="get">
+                <div class="form-group">
+                    <input type="submit" class="btn btn-info" value="Atrás"/>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
